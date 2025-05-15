@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Roboto';
+
+  a,a:visited,a:link{
+    color: inherit;
+  }
+
+}
+
+.pagina {
+  background-color: #f5f6fa;
+  min-height: 100vh;
+
+  .cabecalho {
+    background-color: #fff;
+    padding: 30px 50px;
+
+    h1 {
+      color: #606060;
+      font: 600 36px 'Poppins';
+    }
+  }
+
+  .secao{
+    background-color: #fff;
+    padding: 40px;
+    box-shadow: 0px 0px 15px 2px #e6e6e6;
+    border-radius: 8px;
+    margin: 50px 60px;
+    max-width: 1000px;
+    font: 400 24px 'Poppins';
+
+    h1 {
+      color: #606060;
+      font: 600 28px 'Poppins';
+      margin-bottom: 30px;
+    }
+
+    input,select,textarea{
+      padding: 10px;
+      border-style: solid;
+      border-color: #e7e7e7;
+      border-radius: 3px;
+      border-width: 2px;
+      color: #606060;
+      min-width: 400px;
+      font: 400 22px 'Poppins';
+      outline: none;
+     
+    }
+
+    input[type=checkbox],input[type=radio]{
+      min-width: auto;
+    }
+
+    button{
+      color: #fff;
+      background-color: #0084ff;
+
+      padding: 13px 30px;
+      border-radius: 3px;
+
+      font: 500 20px 'Poppins';
+      border: none;
+    }
+  }
+
+
+}

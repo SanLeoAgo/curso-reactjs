@@ -1,23 +1,48 @@
 
-import './index.css';
+import './index.scss';
 import { Link } from 'react-router-dom'
 
 export default function App() {
   return (
-    <div className="App">
-      <h1>
-        Estudo ReactJS
-        <i className='fa fa-heart'/>
+    <div className="pagina-app pagina">
+      <header className='cabecalho'>
+        <h1 className='titulo1'>
+          Estudo ReactJS
+          <i className='fa fa-heart' />
         </h1>
-        <br />
-        <h2>Estudando JSX</h2>
+      </header>
+
+      <section className='secao'>
+        <h1>Estudando JSX</h1>
+
+        {/* <input type="text" placeholder='Digite aqui' />
+        <br /><br />
+
+        <select>
+          <option >Item 1</option>
+          <option >Item 2</option>
+          <option >Item 3</option>
+        </select>
+
+        <br /><br />
+        
+        <button>Clique Aqui</button> */}
+
         <ul>
           <li>
-            <Link to='/contato'>Ir para contato</Link>
+            <Link to='/contato'>Ir para Contato</Link>
+          </li>
+          <li>
+          <Link to='/eventos'>Ir para Eventos</Link>
+          </li>
+          <li>
+          <Link to='/varestado'>Ir para Variável de Estado</Link>
           </li>
         </ul>
+      </section>
+
     </div>
   );
 }
 
- 
+
