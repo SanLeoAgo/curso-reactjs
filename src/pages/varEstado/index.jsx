@@ -23,8 +23,15 @@ export default function VarEstado() {
     const [totalIng, setTotalIng] = useState(0);
 
     const [novaMeta, setNovaMeta] = useState('');
+    //vetor de strings
     const [listaMetas, setListaMetas] = useState([]);
     const [editando, setEditando] = useState(-1);
+
+    const [plano, setPlano] = useState('');
+    const [situacao, setSituacao] = useState('');
+    const [cor, setCor] = useState('');
+    //vetor de objetos
+    const [listaPlanos, setListaPlanos] = useState([]);
 
     // let contador = 0;
     function aumentar() {
@@ -60,9 +67,9 @@ export default function VarEstado() {
                 setListaMetas([...listaMetas, novaMeta]);
                 //setNovaMeta está vinculada ao input qnd eu altero a variável eu altero o input e vice e versa 
                 setNovaMeta('');
-            }else{
+            } else {
                 //a variável editando é alterada na função alterarMeta
-                listaMetas[editando] =novaMeta;
+                listaMetas[editando] = novaMeta;
                 setListaMetas([...listaMetas]);
                 //limpa a caixa
                 setNovaMeta('');
@@ -90,12 +97,56 @@ export default function VarEstado() {
         setEditando(pos);
     }
 
+    function adicionarPlano() {
+        let novoPlano = {
+            titulo: plano,
+            tempo: situacao,
+            tema: cor
+        }
+        if (plano && situacao && cor !== '') {
+            if(editando===-1){
+            setListaPlanos([...listaPlanos, novoPlano]);
+            setPlano('');
+            setSituacao('');
+            setCor('');
+            }
+        }
+
+    }
+
     return (
 
         <div className='pagina-varestado pagina'>
             <header className='cabecalho'>
                 <h1>ReactJS | Variável de Estado</h1>
             </header>
+
+            <div className='secao planos'>
+                <h1>Meus planos atuais</h1>
+
+                <div className='entrada'>
+                    <input type="text" placeholder='Meu plano aqui' value={plano} onChange={e => setPlano(e.target.value)} />
+                    <input type="text" placeholder='Situação do plano aqui' value={situacao} onChange={e => setSituacao(e.target.value)} />
+                    <span>Cor:&nbsp;
+                        <input type="color" placeholder='Cor de identificação' value={cor} onChange={e => setCor(e.target.value)} /></span>
+                    <button onClick={adicionarPlano}>Adicionar plano</button>
+                </div>
+
+                <div className='lista'>
+                    {listaPlanos.map((item, pos) =>
+                        <div className='plano' key={pos}>
+                            <div className='cor' style={{ backgroundColor: item.tema }}>&nbsp;</div>
+                            <div className='titulo'>
+                                <h1>{item.titulo}</h1>
+                                <h2>{item.tempo}</h2>
+                            </div>
+                        </div>
+                    )}
+
+
+                </div>
+
+            </div>
 
             <div className='secao metas'>
                 <h1>Metas para os próximos 5 anos</h1>
